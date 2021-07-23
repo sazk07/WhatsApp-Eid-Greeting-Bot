@@ -7,7 +7,7 @@ Python script for sending personalized Eid greetings (and other messages) throug
 
 1) Open [Google Contacts](https://contacts.google.com "G contacts") webpage and export your contacts.
 2) Ensure to keep this csv as "google.csv" and keep it in the same folder as the `send_greetings.py` file.
-3) Caveat: Unlike the previous version, *filter_contacts.py* now passes all contacts as arguments **en masse**. Therefore any name you want to change or any contact you don't want to send the message to: amend the *google.csv* file beforehand (change in Given name field, delete any contacts you don't want to message etc). This has been done so that the user doesn't have to give permission at each entry because this could be tedious for 150+ contacts. 
+3) Caveat: Unlike the previous version, *filter_contacts.py* now passes all contacts as arguments **en masse**. Therefore any name you want to change or any contact you don't want to send the message to: amend the `google.csv` file beforehand (change in Given name field, delete any contacts you don't want to message etc). This has been done so that the user doesn't have to provide confirmation at each contact name because this could be tedious for 150+ contacts. 
 
 ## Install libraries
 
