@@ -1,4 +1,4 @@
-# whatsappEidGreetingBot
+# WhatsApp-Eid-Greeting-Bot
 
 Python script for sending personalized Eid greetings (and other messages) through Whatsapp via a bot.
 
@@ -17,10 +17,23 @@ Python script for sending personalized Eid greetings (and other messages) throug
 ## Firefox Driver
 
 1) Install the latest version of Firefox Driver (geckodriver): https://github.com/mozilla/geckodriver/releases
-2) Create a folder named `C:\webdrivers`
-3) Right-click on the Windows Start menu button --> go to `System` --> `Advanced System Settings` --> `Environment Variables` --> Click on `Path` in `System Variables` --> then click `Edit` button. Click `New` and paste `C:\Webdrivers`.
-4) Here is a video explanation of the same process: https://www.youtube.com/watch?v=dz59GsdvUF8
-5) Set up the path of (Firefox) Gecko Driver in line 7 of send_greetings.py
+2) Create a directory named `C:\webdrivers` on Windows or `./webdrivers` on Linux
+
+3)
+    ### On Windows
+
+    - right click on the Windows Start menu button --> go to `System` --> `Advanced System Settings` --> `Environment Variables` --> Click on `Path` in `System Variables` --> then click `Edit` button. Click `New` and paste `C:\Webdrivers`.
+
+    - Here is a video explanation of the same process: https://www.youtube.com/watch?v=dz59GsdvUF8
+
+4)
+    ### On Linux
+
+    - set up the PATH using:
+
+        > $ export PATH=$PATH:"$HOME/webdrivers"
+
+        > $ source ~/.bashrc
 
 ## Running the code
 
