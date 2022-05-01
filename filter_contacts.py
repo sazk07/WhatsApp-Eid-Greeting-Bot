@@ -1,11 +1,13 @@
-import pandas as pd
+import pandas
 
 
-def filter_contacts(filename: str) -> dict:
-    all_contacts = pd.read_csv(filename)
+def filter_contacts(filename):
+    all_contacts = pandas.read_csv(filename)
     all_contacts = all_contacts[["Name", "Given Name"]]
-    wishing_contacts = {}
-    for row in all_contacts.iterrows():
-        print(str(row["Name"]) + "  -  " + str(row["Given Name"]))
-        wishing_contacts[str(row["Name"])] = str(row["Given Name"])
+    wishing_contacts = dict()
+    for _, row in all_contacts.iterrows():
+        print(f"{str(row['Name'])} - {str(row['Given Name'])}")
+        name_val = str(row["Name"])
+        given_name_val = str(row["Given Name"])
+        wishing_contacts[name_val] = given_name_val
     return wishing_contacts
