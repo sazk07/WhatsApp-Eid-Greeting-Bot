@@ -30,7 +30,7 @@ for key, value in wishing_contacts.items():
             pass
     else:
         user_box.click()
-        # click on attach icon. should i do this or go straight to attach_image
+        # click on attach icon
         attach_item = driver.find_element_by_css_selector('span[data-icon="clip"]')
         attach_item.click()
         try:
