@@ -1,6 +1,5 @@
 import pandas
 
-
 def filter_contacts(filename):
     all_contacts = pandas.read_csv(filename)
     all_contacts = all_contacts[["Name", "Given Name"]]
