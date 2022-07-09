@@ -1,12 +1,12 @@
 from time import sleep
 from selenium import webdriver
-import filter_contacts
+import filterContacts
 
 file_path = input("enter absolute file path to greeting card: ")
 PRE_MSG = "Salam *"
 ASTERISK_END = "* "
 POST_MSG = input("enter your message: ")
-wishing_contacts = filter_contacts.filter_contacts("./staging/notes/assets/google.csv")
+wishing_contacts = filterContacts.filter_contacts("./staging/notes/assets/google.csv")
 options = webdriver.FirefoxOptions()
 driver = webdriver.Firefox(options=options)
 driver.get("https://web.whatsapp.com")
