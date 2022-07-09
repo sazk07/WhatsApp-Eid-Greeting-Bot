@@ -4,8 +4,8 @@ import filter_contacts
 
 file_path = input("enter absolute file path to greeting card: ")
 PRE_MSG = "Salam *"
-ASTERISK_END = "*"
-POST_MSG = " Eid Mubarak to you and your family." 
+ASTERISK_END = "* "
+POST_MSG = input("enter your message: ") 
 wishing_contacts = filter_contacts.filter_contacts("./staging/notes/assets/google.csv")
 options = webdriver.FirefoxOptions()
 driver = webdriver.Firefox(options=options)
