@@ -29,7 +29,7 @@ for key, value in wishingContacts.items():
         attach_item = driver.find_element_by_css_selector('span[data-icon="clip"]')
         attach_item.click()
         attach_image = driver.find_element_by_xpath('//input[@type="file"]')
-        attach_image.send_keys("/home/sazk/unodrive/umbrella folders/python umbrella folder/eid wishbot/card.jpg")
+        attach_image.send_keys("./card.jpg")
         sleep(1)
         # find message box that comes with attachment
         message_box = driver.find_element_by_css_selector('div[data-tab="10"]')
