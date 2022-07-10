@@ -5,6 +5,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 import filterContacts
 
+spec_cases = input("enter names for separate messaging, separated by comma: ")
+spec_cases = spec_cases.split(",")
 file_path = "./card.jpg"
 PRE_MSG = "Salam *"
 ASTERISK_END = "* "
@@ -75,10 +77,16 @@ while True:
                     )
                 )
                 message_box.click()
-                if key == "Arnaud Moussac":
+                for element in spec_cases:
+                if key == element:
                     message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
+                    # find send button
+                    driver.implicitly_wait(10)
+                    send_button = driver.find_element_by_css_selector('span[data-icon="send"')
+                    send_button.click()
                 else:
-                    message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
+                    break
+            message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
                 # find send button
                 send_button = WebDriverWait(driver, 30).until(
                     expected_conditions.element_to_be_clickable(
