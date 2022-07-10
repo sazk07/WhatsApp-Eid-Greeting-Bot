@@ -64,7 +64,7 @@ while True:
                 message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
             else:
                 message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
-            # click send
+            # click send button
             send_button = driver.find_element(
                 By.XPATH,
                 "/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div/span[2]/div/div[2]/div[2]/button/span",
