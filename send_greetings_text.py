@@ -25,8 +25,8 @@ for key, value in wishing_contacts.items():
     name_box.send_keys(key)
     try:
         # search for user name in aside
-        driver.implicitly_wait(10)
         sleep(1)
+        driver.implicitly_wait(10)
         user_box = driver.find_element_by_css_selector("span[title='" + key + "'")
         user_box.click()
     except exceptions.NoSuchElementException as err:
