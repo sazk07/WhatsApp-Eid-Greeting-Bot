@@ -22,7 +22,7 @@ driver.get("https://web.whatsapp.com")
 for key, value in wishing_contacts.items():
     # search for name
     sleep(1)
-    new_chat_button = driver.find_element_by_css_selector("span[data-icon:'chat'")
+    new_chat_button = driver.find_element_by_css_selector("span[data-icon='chat'")
     new_chat_button.click()
     name_box = driver.find_element_by_css_selector("div[data-tab='3'")
     name_box.click()
