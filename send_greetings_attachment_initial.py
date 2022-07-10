@@ -5,7 +5,7 @@ import filterContacts
 file_path = "/home/sazk/unodrive/umbrella folders/python umbrella folder/eid wishbot/staging/notes/assets/card.jpg"
 PRE_MSG = "Salam *"
 ASTERISK_END = "* "
-POST_MSG = "Eid Mubarak to you and your family \n from Shahan"
+POST_MSG = "Eid Mubarak to you and your family \nfrom Shahan"
 wishing_contacts = filterContacts.filter_contacts("/home/sazk/unodrive/umbrella folders/python umbrella folder/eid wishbot/staging/notes/assets/google.csv")
 options = webdriver.FirefoxOptions()
 driver = webdriver.Firefox(options=options)
