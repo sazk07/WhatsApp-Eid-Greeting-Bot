@@ -5,16 +5,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 import filterContacts
 
-file_path = "/home/sazk/unodrive/umbrella folders/python umbrella folder/eid wishbot/staging/notes/assets/card.jpg"
+file_path = "./card.jpg"
 PRE_MSG = "Salam *"
 ASTERISK_END = "* "
 POST_MSG = "Eid Mubarak to you and your family \nfrom Shahan"
 PRE_MSG2 = "Bonjour *"
 POST_MSG2 = "Selamat Hari Raya\nfrom Shahan"
 list_keys = []
-wishing_contacts = filterContacts.filter_contacts(
-    "/home/sazk/unodrive/umbrella folders/python umbrella folder/eid wishbot/staging/notes/assets/google.csv"
-)
+wishing_contacts = filterContacts.filter_contacts("./google.csv")
 options = webdriver.FirefoxOptions()
 driver = webdriver.Firefox(options=options)
 driver.implicitly_wait(30)
