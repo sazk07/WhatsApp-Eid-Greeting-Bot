@@ -2,14 +2,18 @@ from time import sleep
 from selenium import webdriver, common.exceptions
 import filterContacts
 
-file_path = "/home/sazk/unodrive/umbrella folders/python umbrella folder/eid wishbot/staging/notes/assets/card.jpg"
+# remember to check file_path
+spec_case = input("enter name: ")
+file_path = "./card.jpg"
 PRE_MSG = "Salam *"
 ASTERISK_END = "* "
+# edit message as needed
 POST_MSG = "Eid Mubarak to you and your family \nfrom Shahan"
 PRE_MSG2 = "Bonjour *"
 POST_MSG2 = "Selamat Hari Raya"
 
-wishing_contacts = filterContacts.filter_contacts("/home/sazk/unodrive/umbrella folders/python umbrella folder/eid wishbot/staging/notes/assets/google.csv")
+# remember to check path
+wishing_contacts = filterContacts.filter_contacts("./google.csv")
 options = webdriver.FirefoxOptions()
 driver = webdriver.Firefox(options=options)
 driver.implicitly_wait(30)
@@ -49,7 +53,7 @@ for key, value in wishing_contacts.items():
             sleep(1)
             message_box = driver.find_element_by_css_selector('div[data-tab="10"')
             message_box.click()
-            if key == "Arnaud Moussac":
+            if key == spec_case:
                 message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
             else:
                 message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
