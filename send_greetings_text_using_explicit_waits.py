@@ -5,6 +5,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 import filterContacts
 
+spec_cases = input("enter names for separate messaging, separated by comma: ")
+spec_cases = spec_cases.split(",")
 PRE_MSG = "Salam *"
 ASTERISK_END = "* "
 POST_MSG = "Eid Mubarak to you and your family \nfrom Shahan"
@@ -57,10 +59,17 @@ while True:
                 By.CSS_SELECTOR, "div[title='Type a message']"
             )
             message_box.click()
-            if key == "Arnaud Moussac":
-                message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
-            else:
-                message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
+            for element in spec_cases:
+                if key == element:
+                    message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
+                    # find send button
+                    driver.implicitly_wait(10)
+                    send_button = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div/span[2]/div/div[2]/div[2]/button/span")
+                    send_button.click()
+                    # should i use else: pass to break out of the for loop?
+                else:
+                    break
+            message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
             # click send
             send_button = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div/span[2]/div/div[2]/div[2]/button/span")
             send_button.click()
