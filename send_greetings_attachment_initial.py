@@ -15,6 +15,8 @@ driver.get("https://web.whatsapp.com")
 for key, value in wishing_contacts.items():
     # search for name
     sleep(1)
+    new_chat_button = driver.find_element_by_css_selector("span[data-icon:'chat'")
+    new_chat_button.click()
     name_box = driver.find_element_by_css_selector("div[data-tab='3'")
     name_box.click()
     name_box.send_keys(key)
@@ -22,7 +24,7 @@ for key, value in wishing_contacts.items():
         # search for user name in aside
         driver.implicitly_wait(10)
         sleep(1)
-        user_box = driver.find_element_by_css_selector("span[title='" + str(key) + "'")
+        user_box = driver.find_element_by_css_selector("span[title='" + key + "'")
         user_box.click()
     except common.exceptions.NoSuchElementException as err:
         print(f"unexpected {err=}, {type(err)=}")
@@ -33,8 +35,8 @@ for key, value in wishing_contacts.items():
         try:
             attach_item = driver.find_element_by_css_selector('span[data-icon="clip"]')
             attach_item.click()
-        except common.exceptions.NoSuchElementException as err:
-            print(f"second unexpected {err=}, {type(err)=}")
+        except common.exceptions.NoSuchElementException as err2:
+            print(f"second unexpected {err2=}, {type(err2)=}")
             name_box.clear()
             continue
         else:
