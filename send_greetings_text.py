@@ -3,6 +3,7 @@ from selenium import webdriver, common.exceptions
 import filterContacts
 
 spec_case = input("enter name: ")
+# edit messages as needed
 PRE_MSG = "Salam *"
 ASTERISK_END = "* "
 POST_MSG = "Eid Mubarak to you and your family \nfrom Shahan"
