@@ -6,6 +6,9 @@ file_path = "/home/sazk/unodrive/umbrella folders/python umbrella folder/eid wis
 PRE_MSG = "Salam *"
 ASTERISK_END = "* "
 POST_MSG = "Eid Mubarak to you and your family \nfrom Shahan"
+PRE_MSG2 = "Bonjour *"
+POST_MSG2 = "Selamat Hari Raya"
+
 wishing_contacts = filterContacts.filter_contacts("/home/sazk/unodrive/umbrella folders/python umbrella folder/eid wishbot/staging/notes/assets/google.csv")
 options = webdriver.FirefoxOptions()
 driver = webdriver.Firefox(options=options)
@@ -46,7 +49,10 @@ for key, value in wishing_contacts.items():
             sleep(1)
             message_box = driver.find_element_by_css_selector('div[data-tab="10"')
             message_box.click()
-            message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
+            if key == "Arnaud Moussac":
+                message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
+            else:
+                message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
             # find send button
             driver.implicitly_wait(10)
             send_button = driver.find_element_by_css_selector('span[data-icon="send"')
