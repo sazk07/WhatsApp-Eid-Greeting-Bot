@@ -82,7 +82,7 @@ while True:
                     message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
                     # find send button
                     driver.implicitly_wait(10)
-                    send_button = driver.find_element_by_css_selector('span[data-icon="send"')
+                    send_button = WebDriverWait(driver, 30).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, "span[data-icon='send'")))
                     send_button.click()
                 else:
                     break
