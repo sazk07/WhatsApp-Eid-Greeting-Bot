@@ -2,8 +2,8 @@ from time import sleep
 from selenium import webdriver, common.exceptions
 import filterContacts
 
-spec_case = input("enter name: ")
-# edit messages as needed
+spec_cases = input("enter names for separate messaging, separated by comma: ")
+spec_cases = spec_cases.split(",")
 PRE_MSG = "Salam *"
 ASTERISK_END = "* "
 POST_MSG = "Eid Mubarak to you and your family \nfrom Shahan"
@@ -25,8 +25,8 @@ for key, value in wishing_contacts.items():
     name_box.send_keys(key)
     try:
         # search for user name in aside
-        driver.implicitly_wait(10)
         sleep(1)
+        driver.implicitly_wait(10)
         user_box = driver.find_element_by_css_selector("span[title='" + key + "'")
         user_box.click()
     except exceptions.NoSuchElementException as err:
@@ -37,10 +37,17 @@ for key, value in wishing_contacts.items():
         # click on message text box
         message_box = driver.find_element_by_css_selector("div[title='Type a message']")
         message_box.click()
-        if key == spec_case:
-            message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
-        else:
-            message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
-        # click send
+        for element in spec_cases:
+            if key == element:
+                message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
+                # find send button
+                driver.implicitly_wait(10)
+                send_button = driver.find_element_by_xpath('//button[@class="_4sWnG"]')
+                send_button.click()
+            else:
+                break
+        message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
+        # find send button
+        driver.implicitly_wait(10)
         send_button = driver.find_element_by_xpath('//button[@class="_4sWnG"]')
         send_button.click()
