@@ -1,5 +1,5 @@
 from time import sleep
-from selenium import webdriver, common
+from selenium import webdriver, common.exceptions
 import filterContacts
 
 file_path = "/home/sazk/unodrive/umbrella folders/python umbrella folder/eid wishbot/staging/notes/assets/card.jpg"
@@ -26,7 +26,7 @@ for key, value in wishing_contacts.items():
         sleep(1)
         user_box = driver.find_element_by_css_selector("span[title='" + key + "'")
         user_box.click()
-    except common.exceptions.NoSuchElementException as err:
+    except exceptions.NoSuchElementException as err:
         print(f"unexpected {err=}, {type(err)=}")
         name_box.clear()
         continue
@@ -35,7 +35,7 @@ for key, value in wishing_contacts.items():
         try:
             attach_item = driver.find_element_by_css_selector('span[data-icon="clip"]')
             attach_item.click()
-        except common.exceptions.NoSuchElementException as err2:
+        except exceptions.NoSuchElementException as err2:
             print(f"second unexpected {err2=}, {type(err2)=}")
             name_box.clear()
             continue
