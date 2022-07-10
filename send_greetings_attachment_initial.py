@@ -57,9 +57,9 @@ for key, value in wishing_contacts.items():
                 for element in spec_cases:
                     if key == element:
                         message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
-                        driver.implicitly_wait(10)
-                        send_button = driver.find_element_by_css_selector('span[data-icon="send"')
-                        send_button.click()
+                    driver.implicitly_wait(10)
+                    send_button = driver.find_element_by_css_selector('span[data-icon="send"')
+                    send_button.click()
             # i expect hell here. suggest improvements pls
             except Exception as err3:
                 print(f"third unexpected {err3=}, {type(err3)=}")
