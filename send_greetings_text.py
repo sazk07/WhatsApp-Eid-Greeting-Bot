@@ -37,8 +37,8 @@ for key, value in wishing_contacts.items():
         # click on message text box
         message_box = driver.find_element_by_css_selector("div[title='Type a message']")
         message_box.click()
-        for element in spec_cases:
-            if key == element:
+        for name in spec_cases:
+            if key == name:
                 message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
                 # find send button
                 driver.implicitly_wait(10)
