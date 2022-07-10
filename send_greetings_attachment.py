@@ -78,7 +78,8 @@ while True:
                     )
                 )
                 message_box.click()
-                if key == "Arnaud Moussac":
+                # change to real name
+                if key == "AM":
                     message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
                 else:
                     message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
