@@ -2,15 +2,15 @@ from time import sleep
 from selenium import webdriver, common.exceptions
 import filterContacts
 
-# remember to check file_path
 spec_case = input("enter name: ")
+# remember to check file_path
 file_path = "./card.jpg"
+# edit messages as needed
 PRE_MSG = "Salam *"
 ASTERISK_END = "* "
-# edit message as needed
 POST_MSG = "Eid Mubarak to you and your family \nfrom Shahan"
 PRE_MSG2 = "Bonjour *"
-POST_MSG2 = "Selamat Hari Raya"
+POST_MSG2 = "Selamat Hari Raya\nfrom Shahan"
 
 # remember to check path
 wishing_contacts = filterContacts.filter_contacts("./google.csv")
