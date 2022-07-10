@@ -5,16 +5,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 import filterContacts
 
-spec_cases = input("enter names for separate messaging, separated by comma: ")
-spec_cases = spec_cases.split(",")
-file_path = "./card.jpg"
+file_path = "/home/sazk/unodrive/umbrella folders/python umbrella folder/eid wishbot/staging/notes/assets/card.jpg"
 PRE_MSG = "Salam *"
 ASTERISK_END = "* "
 POST_MSG = "Eid Mubarak to you and your family \nfrom Shahan"
 PRE_MSG2 = "Bonjour *"
 POST_MSG2 = "Selamat Hari Raya\nfrom Shahan"
 list_keys = []
-wishing_contacts = filterContacts.filter_contacts("./google.csv")
+wishing_contacts = filterContacts.filter_contacts(
+    "/home/sazk/unodrive/umbrella folders/python umbrella folder/eid wishbot/staging/notes/assets/google.csv"
+)
 options = webdriver.FirefoxOptions()
 driver = webdriver.Firefox(options=options)
 driver.implicitly_wait(30)
@@ -80,21 +80,10 @@ while True:
                     )
                 )
                 message_box.click()
-                for name in spec_cases:
-                    if key == name:
-                        message_box.send_keys(
-                            PRE_MSG2 + value + ASTERISK_END + POST_MSG2
-                        )
-                        # find send button
-                        send_button = WebDriverWait(driver, 30).until(
-                            expected_conditions.element_to_be_clickable(
-                                (By.CSS_SELECTOR, "span[data-icon='send'")
-                            )
-                        )
-                        send_button.click()
-                    else:
-                        break
-                message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
+                if key == "Arnaud Moussac":
+                    message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
+                else:
+                    message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
                 # click send button
                 send_button = WebDriverWait(driver, 30).until(
                     expected_conditions.element_to_be_clickable(
