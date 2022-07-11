@@ -57,7 +57,8 @@ def main():
                         selector = (By.CSS_SELECTOR, "div[title='Type a message']")
                         message_box = driver.find_element(selector)
                         message_box.click()
-                        if key == "Arnaud Moussac":
+                        # change name here
+                        if key == "AM":
                             message_box.send_keys(
                                 PRE_MSG2 + value + ASTERISK_END + POST_MSG2
                             )
