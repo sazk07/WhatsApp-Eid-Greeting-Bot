@@ -57,7 +57,6 @@ def main():
                         selector = (By.CSS_SELECTOR, "div[title='Type a message']")
                         message_box = driver.find_element(selector)
                         message_box.click()
-                        # change name here
                         if key == "AM":
                             message_box.send_keys(
                                 PRE_MSG2 + value + ASTERISK_END + POST_MSG2
@@ -85,6 +84,7 @@ def main():
                         )
                         message_box = WebDriverWait(driver, 30).until(condition)
                         message_box.click()
+                        # change name here
                         if key == "AM":
                             message_box.send_keys(
                                 PRE_MSG2 + value + ASTERISK_END + POST_MSG2

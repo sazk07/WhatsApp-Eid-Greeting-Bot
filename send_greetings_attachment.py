@@ -11,7 +11,7 @@ ASTERISK_END = "* "
 POST_MSG = "Eid Mubarak to you and your family \nfrom Shahan"
 PRE_MSG2 = "Bonjour *"
 POST_MSG2 = "Selamat Hari Raya\nfrom Shahan"
-list_keys = []
+list_keys_for_deletion = []
 wishing_contacts = filterContacts.filter_contacts("./google.csv")
 options = webdriver.FirefoxOptions()
 driver = webdriver.Firefox(options=options)
@@ -20,7 +20,7 @@ driver.get("https://web.whatsapp.com")
 
 while True:
     for key, value in wishing_contacts.items():
-        list_keys.append(key)
+        list_keys_for_deletion.append(key)
         # click chat button
         new_chat_button = WebDriverWait(driver, 30).until(
             expected_conditions.element_to_be_clickable(
@@ -44,7 +44,7 @@ while True:
                 )
             )
             user_box.click()
-            if key in list_keys:
+            if key in list_keys_for_deletion:
                 del wishing_contacts[key]
         except exceptions.TimeoutException:
             break
