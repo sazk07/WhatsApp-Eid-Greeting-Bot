@@ -5,7 +5,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 import filterContacts
 
-text_or_attachment = input("do you want to send (1) text only or (2) with attachment?: ")
+text_or_attachment = input(
+    "do you want to send (1) text only or (2) with attachment?: "
+)
 file_path = "./card.jpg"
 PRE_MSG = "Salam *"
 ASTERISK_END = "* "
@@ -61,23 +63,35 @@ while True:
                     )
                     message_box.click()
                     if key == "Arnaud Moussac":
-                        message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
+                        message_box.send_keys(
+                            PRE_MSG2 + value + ASTERISK_END + POST_MSG2
+                        )
                     else:
                         message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
                     # click send button
-                    send_button = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div/span[2]/div/div[2]/div[2]/button/span")
+                    send_button = driver.find_element(
+                        By.XPATH,
+                        "/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div/span[2]/div/div[2]/div[2]/button/span",
+                    )
                 case "2":
-                    attach_image = driver.find_element(By.XPATH, '//input[@type="file"]')
+                    attach_image = driver.find_element(
+                        By.XPATH, '//input[@type="file"]'
+                    )
                     attach_image.send_keys(file_path)
                     # find message box that comes with attachment
                     message_box = WebDriverWait(driver, 30).until(
                         expected_conditions.element_to_be_clickable(
-                            (By.XPATH, "/html/body/div[1]/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[2]")
+                            (
+                                By.XPATH,
+                                "/html/body/div[1]/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[2]",
+                            )
                         )
                     )
                     message_box.click()
                     if key == "AM":
-                        message_box.send_keys(PRE_MSG2 + value + ASTERISK_END + POST_MSG2)
+                        message_box.send_keys(
+                            PRE_MSG2 + value + ASTERISK_END + POST_MSG2
+                        )
                     else:
                         message_box.send_keys(PRE_MSG + value + ASTERISK_END + POST_MSG)
                     # click send button
